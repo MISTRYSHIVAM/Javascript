@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toss coin</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: cursive;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            background-color: gainsboro;
+            height: 60vh;
+        }
+        .gif{
+            border-radius: 50%;
+        }
+        .result{
+            font-size: 25px;
+        }
+        .btn{
+            padding : 10px;
+            width : 250px;
+            font-size: 25px;
+            font-weight: bold;
+            border: 2px solid black;
+            border-radius: 15px;
+            transition: 1s;
+        }
+        .btn:hover{
+            background-color: rgb(206, 204, 204);
+            box-shadow: 5px 5px black;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">TossCoin</h1>
+
+    <div class="container" >
+        <div class="gifLoader" >
+            <img src="./Coin_anim_H-02.gif" class="gif" width="250px" >
+        </div>
+        <div class="result" >result : </div>
+        <div class="btnContainer">
+            <input type="button" class="btn" id="flipBtn" value="Flip the coin" onclick="toss()" />
+        </div>
+    </div>
+    <script>
+        let n = 0 ;
+        let flag = false;
+        let arr = ["Fliping .","Fliping ..","Fliping ...","Fliping ...."];
+        function toss(){
+            flag = true;
+            if(flag)
+            {
+                let interval = setInterval(animation,500);
+            }
+            else
+            {
+                clearInterval(interval)
+            }
+        }
+
+        function animation(){
+            if(n == 4)
+            {
+                n = 0;
+                document.getElementById("flipBtn").setAttribute("value",arr[n]);
+            }
+            else
+            {
+                document.getElementById("flipBtn").setAttribute("value",arr[n]);
+                n++;
+            }
+        }
+    </script>
+</body>
+</html>
